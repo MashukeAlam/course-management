@@ -10,5 +10,24 @@
   <%= @department.desc %>
 </p>
 
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Years</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @department.years.each do |year| %>
+    <tr>
+      <td><%= year.name %></td>
+      <td><%= link_to 'Add semester', years_url %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Edit', edit_department_path(@department) %> |
 <%= link_to 'Back', departments_path %>

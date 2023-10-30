@@ -37,11 +37,11 @@
         <tr>
           <td><%= dept.title %></td>
 
-          <% @years.each do |year| %>
 
-          <% end %>
 
-          <td><%= link_to 'Approve', "/requests/approve/" %></td>
+
+
+          <td><%= link_to 'Details', dept %></td>
           <td><%= link_to 'Destroy', dept, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
