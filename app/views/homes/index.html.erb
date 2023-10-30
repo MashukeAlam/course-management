@@ -4,7 +4,10 @@
 <% if user_signed_in? %>
   <%= button_to "Sign Out", destroy_user_session_path, :method => :delete %>
   <% if current_user.admin? %>
-    <h4>You are an admin.</h4>
+    <h4>You are an admin</h4>
+  <% elsif current_user.regular %>
+    <h4>You are a regular user. Try to get a role now!</h4>
+    <%= link_to 'Get a role', new_request_url %>
   <% end %>
 <% end %>
 <table>
@@ -15,11 +18,11 @@
   </thead>
 
   <tbody>
-    <% @homes.each do |home| %>
+    <% @requests.each do |request| %>
       <tr>
-        <td><%= link_to 'Show', home %></td>
-        <td><%= link_to 'Edit', edit_home_path(home) %></td>
-        <td><%= link_to 'Destroy', home, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= request.user %></td>
+        <td><%= link_to 'Show', request %></td>
+        <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

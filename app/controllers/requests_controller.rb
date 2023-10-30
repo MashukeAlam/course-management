@@ -22,7 +22,7 @@ class RequestsController < ApplicationController
   # POST /requests or /requests.json
   def create
     @request = Request.new(request_params)
-
+    @request.user_id = current_user.id
     respond_to do |format|
       if @request.save
         format.html { redirect_to request_url(@request), notice: "Request was successfully created." }

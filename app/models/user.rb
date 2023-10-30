@@ -7,4 +7,8 @@ class User < ApplicationRecord
   def admin?
     return admin
   end
+
+  def regular
+    return role == nil
+  end
 end
