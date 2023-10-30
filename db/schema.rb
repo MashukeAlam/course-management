@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_30_084026) do
+ActiveRecord::Schema.define(version: 2023_10_30_085259) do
 
   create_table "departments", force: :cascade do |t|
     t.string "title"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 2023_10_30_084026) do
     t.index ["user_id"], name: "index_roles_on_user_id"
   end
 
+  create_table "semesters", force: :cascade do |t|
+    t.string "title"
+    t.integer "year_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["year_id"], name: "index_semesters_on_year_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -65,5 +73,6 @@ ActiveRecord::Schema.define(version: 2023_10_30_084026) do
 
   add_foreign_key "requests", "users"
   add_foreign_key "roles", "users"
+  add_foreign_key "semesters", "years"
   add_foreign_key "years", "departments"
 end
