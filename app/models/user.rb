@@ -12,11 +12,11 @@ class User < ApplicationRecord
     return role == nil
   end
 
-  def student
+  def student?
     return role == "Student"
   end
 
-  def teacher
+  def teacher?
     return role == "Teacher"
   end
 end

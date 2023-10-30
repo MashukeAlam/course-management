@@ -22,12 +22,13 @@
       <% end %>
       </tbody>
     </table>
-  <% elsif current_user.regular %>
+    <%= link_to "Create Dept", new_department_url %>
+  <% elsif current_user.regular? %>
     <h4>You are a regular user. Try to get a role now!</h4>
     <%= link_to 'Get a role', new_request_url %>
-  <% elsif current_user.student %>
+  <% elsif current_user.student? %>
     <h4>You are a student.</h4>
-  <% elsif current_user.teacher %>
+  <% elsif current_user.teacher? %>
     <h4>You are a teacher.</h4>
   <% end %>
 <% end %>
