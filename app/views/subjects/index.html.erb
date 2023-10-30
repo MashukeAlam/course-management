@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Type</th>
+      <th>Sub type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +15,7 @@
     <% @subjects.each do |subject| %>
       <tr>
         <td><%= subject.title %></td>
-        <td><%= subject.type %></td>
+        <td><%= subject.sub_type %></td>
         <td><%= link_to 'Show', subject %></td>
         <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
         <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>

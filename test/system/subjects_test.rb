@@ -14,8 +14,8 @@ class SubjectsTest < ApplicationSystemTestCase
     visit subjects_url
     click_on "New Subject"
 
+    fill_in "Sub type", with: @subject.sub_type
     fill_in "Title", with: @subject.title
-    fill_in "Type", with: @subject.type
     click_on "Create Subject"
 
     assert_text "Subject was successfully created"
@@ -26,8 +26,8 @@ class SubjectsTest < ApplicationSystemTestCase
     visit subjects_url
     click_on "Edit", match: :first
 
+    fill_in "Sub type", with: @subject.sub_type
     fill_in "Title", with: @subject.title
-    fill_in "Type", with: @subject.type
     click_on "Update Subject"
 
     assert_text "Subject was successfully updated"

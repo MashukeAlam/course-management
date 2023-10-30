@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_30_085259) do
+ActiveRecord::Schema.define(version: 2023_10_30_093318) do
 
   create_table "departments", force: :cascade do |t|
     t.string "title"
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 2023_10_30_085259) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["year_id"], name: "index_semesters_on_year_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "title"
+    t.string "sub_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,4 @@
 class SubjectsController < ApplicationController
-  load_and_authorize_resource
   before_action :set_subject, only: %i[ show edit update destroy ]
 
   # GET /subjects or /subjects.json
@@ -66,6 +65,6 @@ class SubjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def subject_params
-      params.require(:subject).permit(:title, :type)
+      params.require(:subject).permit(:title, :sub_type)
     end
 end
