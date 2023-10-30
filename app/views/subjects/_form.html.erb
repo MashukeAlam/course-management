@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :sub_type %>
-    <%= form.text_field :sub_type %>
+    <%= form.select :sub_type, Subject::STATUS_LIST %>
   </div>
 
   <div class="actions">
