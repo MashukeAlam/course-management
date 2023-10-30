@@ -13,6 +13,7 @@ class SemestersController < ApplicationController
   # GET /semesters/new
   def new
     @semester = Semester.new
+    @year_id = params[:year_id]
   end
 
   # GET /semesters/1/edit

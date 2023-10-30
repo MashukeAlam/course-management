@@ -16,13 +16,13 @@
   <% @year.semesters.each do |sem| %>
     <tr>
       <td><%= sem.title %></td>
-      <td><%= link_to 'Details', year %></td>
+      <td><%= link_to 'Details', sem %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 <hr>
-<%= link_to "Add Semester", new_semester_url() %>
+<%= link_to "Add Semester", new_semester_url(year_id: @year.id) %>
 <br>
-<%= link_to 'Edit', edit_year_path(@year) %> |
+<%= link_to 'Edit', edit_year_path(:year_id => @year.id) %> |
 <%= link_to 'Back', years_path %>
