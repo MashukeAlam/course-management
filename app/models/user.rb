@@ -8,7 +8,7 @@ class User < ApplicationRecord
     return admin
   end
 
-  def regular
+  def regular?
     return role == nil
   end
 
