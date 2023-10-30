@@ -6,6 +6,7 @@ class HomesController < ApplicationController
   def index
     @requests = Request.all
     @departments = Department.all
+    @dept_student = DeptStudent.new
 
   end
 

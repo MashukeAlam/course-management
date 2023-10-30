@@ -13,6 +13,7 @@ class DeptStudentsController < ApplicationController
   # GET /dept_students/new
   def new
     @dept_student = DeptStudent.new
+    @user_id = params[:user_id]
   end
 
   # GET /dept_students/1/edit

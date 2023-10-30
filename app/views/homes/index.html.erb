@@ -57,7 +57,7 @@
       <p>You are a student of <%= current_user.dept_name %>.</p>
     <% else %>
       <p>You haven't selected your department yet. Select one right now!</p>
-
+      <%= link_to "Choose department", new_dept_student_url(:user_id => current_user.id) %>
     <% end %>
   <% elsif current_user.teacher? %>
     <h4>You are a teacher.</h4>
