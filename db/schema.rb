@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_30_081845) do
+ActiveRecord::Schema.define(version: 2023_10_30_084026) do
 
   create_table "departments", force: :cascade do |t|
     t.string "title"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 2023_10_30_081845) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "years", force: :cascade do |t|
+    t.integer "department_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.index ["department_id"], name: "index_years_on_department_id"
+  end
+
   add_foreign_key "requests", "users"
   add_foreign_key "roles", "users"
+  add_foreign_key "years", "departments"
 end

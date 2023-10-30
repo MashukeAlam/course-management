@@ -22,6 +22,31 @@
       <% end %>
       </tbody>
     </table>
+
+    <hr>
+
+    <table>
+      <thead>
+      <tr>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @departments.each do |dept| %>
+        <tr>
+          <td><%= dept.title %></td>
+
+          <% @years.each do |year| %>
+
+          <% end %>
+
+          <td><%= link_to 'Approve', "/requests/approve/" %></td>
+          <td><%= link_to 'Destroy', dept, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
     <%= link_to "Create Dept", new_department_url %>
   <% elsif current_user.regular? %>
     <h4>You are a regular user. Try to get a role now!</h4>
