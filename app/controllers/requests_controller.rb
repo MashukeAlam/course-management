@@ -27,6 +27,9 @@ class RequestsController < ApplicationController
     @role.user = User.find(@request.user_id)
     @role.role = @request.role
     @role.save
+    @user = User.find(@request.user_id)
+    @user.role = @request.role
+    @user.save
     redirect_to :root
   end
 
