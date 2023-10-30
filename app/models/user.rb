@@ -19,4 +19,11 @@ class User < ApplicationRecord
   def teacher?
     return role == "Teacher"
   end
+
+  def has_dept?
+    if role != "Student"
+      return false
+    end
+    return
+  end
 end
