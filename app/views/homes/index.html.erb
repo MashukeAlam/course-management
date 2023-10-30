@@ -53,7 +53,9 @@
     <%= link_to 'Get a role', new_request_url %>
   <% elsif current_user.student? %>
     <h4>You are a student.</h4>
-
+    <% if current_user.has_dept? %>
+      <p>You have a department.</p>
+    <% end %>
   <% elsif current_user.teacher? %>
     <h4>You are a teacher.</h4>
   <% end %>

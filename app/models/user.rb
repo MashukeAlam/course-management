@@ -24,6 +24,6 @@ class User < ApplicationRecord
     if role != "Student"
       return false
     end
-    return
+    return  DeptStudent.where(user_id: id).count != 0
   end
 end
