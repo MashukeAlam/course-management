@@ -5,5 +5,24 @@
   <%= @year.department_id %>
 </p>
 
+<table>
+  <thead>
+  <tr>
+    <th>Semesters</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @year.semesters.each do |sem| %>
+    <tr>
+      <td><%= sem.title %></td>
+      <td><%= link_to 'Details', year %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<hr>
+<%= link_to "Add Semester", new_semester_url() %>
+<br>
 <%= link_to 'Edit', edit_year_path(@year) %> |
 <%= link_to 'Back', years_path %>
