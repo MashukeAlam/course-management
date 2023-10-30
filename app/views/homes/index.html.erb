@@ -54,7 +54,10 @@
   <% elsif current_user.student? %>
     <h4>You are a student.</h4>
     <% if current_user.has_dept? %>
-      <p>You have a department.</p>
+      <p>You are a student of <%= current_user.dept_name %>.</p>
+    <% else %>
+      <p>You haven't selected your department yet. Select one right now!</p>
+
     <% end %>
   <% elsif current_user.teacher? %>
     <h4>You are a teacher.</h4>

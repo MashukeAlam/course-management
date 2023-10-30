@@ -26,4 +26,12 @@ class User < ApplicationRecord
     end
     return  DeptStudent.where(user_id: id).count != 0
   end
+
+  def dept_name
+    if role != "Student"
+      return "What?"
+    end
+    return Department.find(DeptStudent.select(:department_id).where(user_id: 2).first.department_id).title
+
+  end
 end
