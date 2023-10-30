@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def student
     return role == "Student"
   end
+
+  def teacher
+    return role == "Teacher"
+  end
 end
