@@ -19,6 +19,17 @@ class RequestsController < ApplicationController
   def edit
   end
 
+  def approve
+    @request = Request.find(params[:id])
+    @request.approved = true
+    @request.save
+    @role = Role.new
+    @role.user = User.find(@request.user_id)
+    @role.role = @request.role
+    @role.save
+    redirect_to :root
+  end
+
   # POST /requests or /requests.json
   def create
     @request = Request.new(request_params)

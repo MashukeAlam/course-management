@@ -11,4 +11,8 @@ class User < ApplicationRecord
   def regular
     return role == nil
   end
+
+  def student
+    return role == "Student"
+  end
 end
