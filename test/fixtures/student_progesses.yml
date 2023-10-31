@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: one
+  semester: one
+  student: one
+  subject: one
+
+two:
+  year: two
+  semester: two
+  student: two
+  subject: two

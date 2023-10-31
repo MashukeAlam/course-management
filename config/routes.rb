@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :student_progesses
   resources :dept_students
   resources :subjects
   resources :semesters
