@@ -1,4 +1,5 @@
 class SemesterSubjectsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_semester_subject, only: %i[ show edit update destroy ]
 
   # GET /semester_subjects or /semester_subjects.json
