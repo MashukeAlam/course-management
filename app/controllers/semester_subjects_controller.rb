@@ -20,7 +20,12 @@ class SemesterSubjectsController < ApplicationController
   end
 
   def custom_create
-    sub_id = params[:id]
+    sub_id = params[:sub_id]
+    sem_id = params[:sem_id]
+    ss = SemesterSubject.new
+    ss.subject_id = sub_id
+    ss.semester_id = sem_id
+    ss.save
     redirect_to :root
   end
 
