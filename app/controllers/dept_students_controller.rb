@@ -28,7 +28,9 @@ class DeptStudentsController < ApplicationController
       if @dept_student.save
         student_progress = StudentProgress.new
         student_progress.year_id = Year.select(:id).where(name: "1st year", department_id: @dept_student.department_id)[0].id
-        student_progress.semester_id =
+        student_progress.semester_id = Semester.select(:id).where(year_id: student_progress.year_id, title: "1st Semester")[0].id
+        student_progress.student_id = @dept_student.user_id
+        student_progress.save
         format.html { redirect_to dept_student_url(@dept_student), notice: "Dept student was successfully created." }
         format.json { render :show, status: :created, location: @dept_student }
       else
