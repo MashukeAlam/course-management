@@ -48,6 +48,31 @@
       </tbody>
     </table>
     <%= link_to "Create Dept", new_department_url %>
+
+    <hr>
+    <table>
+      <thead>
+      <tr>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @subjects.each do |sub| %>
+        <tr>
+          <td><%= sub.title %></td>
+
+
+
+
+
+          <td><%= link_to 'Details', sub %></td>
+          <td><%= link_to 'Destroy', sub, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to "Create Subject", new_subject_url %>
   <% elsif current_user.regular? %>
     <h4>You are a regular user. Try to get a role now!</h4>
     <%= link_to 'Get a role', new_request_url %>
