@@ -2,7 +2,7 @@ require "test_helper"
 
 class StudentProgessesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @student_progess = student_progesses(:one)
+    @student_progress = student_progesses(:one)
   end
 
   test "should get index" do
@@ -17,30 +17,30 @@ class StudentProgessesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create student_progess" do
     assert_difference('StudentProgess.count') do
-      post student_progesses_url, params: { student_progess: { semester_id: @student_progess.semester_id, student_id: @student_progess.student_id, subject_id: @student_progess.subject_id, year_id: @student_progess.year_id } }
+      post student_progesses_url, params: { student_progress: { semester_id: @student_progress.semester_id, student_id: @student_progress.student_id, subject_id: @student_progress.subject_id, year_id: @student_progress.year_id } }
     end
 
-    assert_redirected_to student_progess_url(StudentProgess.last)
+    assert_redirected_to student_progess_url(StudentProgress.last)
   end
 
   test "should show student_progess" do
-    get student_progess_url(@student_progess)
+    get student_progess_url(@student_progress)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_student_progess_url(@student_progess)
+    get edit_student_progess_url(@student_progress)
     assert_response :success
   end
 
   test "should update student_progess" do
-    patch student_progess_url(@student_progess), params: { student_progess: { semester_id: @student_progess.semester_id, student_id: @student_progess.student_id, subject_id: @student_progess.subject_id, year_id: @student_progess.year_id } }
-    assert_redirected_to student_progess_url(@student_progess)
+    patch student_progess_url(@student_progress), params: { student_progress: { semester_id: @student_progress.semester_id, student_id: @student_progress.student_id, subject_id: @student_progress.subject_id, year_id: @student_progress.year_id } }
+    assert_redirected_to student_progess_url(@student_progress)
   end
 
   test "should destroy student_progess" do
     assert_difference('StudentProgess.count', -1) do
-      delete student_progess_url(@student_progess)
+      delete student_progess_url(@student_progress)
     end
 
     assert_redirected_to student_progesses_url

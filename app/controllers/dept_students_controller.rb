@@ -26,6 +26,9 @@ class DeptStudentsController < ApplicationController
 
     respond_to do |format|
       if @dept_student.save
+        student_progress = StudentProgress.new
+        student_progress.year_id = Year.select(:id).where(name: "1st year", department_id: @dept_student.department_id)[0].id
+        student_progress.semester_id =
         format.html { redirect_to dept_student_url(@dept_student), notice: "Dept student was successfully created." }
         format.json { render :show, status: :created, location: @dept_student }
       else
