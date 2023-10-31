@@ -19,6 +19,11 @@ class SemesterSubjectsController < ApplicationController
   def edit
   end
 
+  def custom_create
+    sub_id = params[:id]
+    redirect_to :root
+  end
+
   # POST /semester_subjects or /semester_subjects.json
   def create
     @semester_subject = SemesterSubject.new(semester_subject_params)
@@ -60,7 +65,7 @@ class SemesterSubjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_semester_subject
-      @semester_subject = SemesterSubject.find(params[:id])
+      @semester_subject = SemesterSubject.new
     end
 
     # Only allow a list of trusted parameters through.

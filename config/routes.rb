@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#index'
   get 'requests/approve/:id', to: 'requests#approve'
+  get 'semester_subjects/custom_create/:sem_id/:sub_id', to: 'semester_subjects#custom_create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

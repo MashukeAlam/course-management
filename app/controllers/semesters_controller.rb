@@ -10,6 +10,7 @@ class SemestersController < ApplicationController
   # GET /semesters/1 or /semesters/1.json
   def show
     @subjects = Subject.all
+    @semester_subject = SemesterSubject.new
   end
 
   # GET /semesters/new
