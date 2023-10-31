@@ -41,6 +41,9 @@ class User < ApplicationRecord
     end
 
     res = []
-    year = StudentProgress.find_by_student_id(id)
+    year = StudentProgress.find_by_user_id(id).year.name
+    semester = StudentProgress.find_by_user_id(id).semester.title
+
+    return "You are in #{semester} of #{year}"
   end
 end
