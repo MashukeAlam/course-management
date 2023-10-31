@@ -6,8 +6,12 @@ class Ability
   def initialize(user)
     if user.admin?
       can :manage, :all
-    elsif user.student? or user.teacher?
+    elsif user.student?
       can :read, Department
+      can :create, StudentProgress
+      can :create, DeptStudent
+    elsif user.teacher?
+      cam :read, department
     end
     # Define abilities for the user here. For example:
     #
