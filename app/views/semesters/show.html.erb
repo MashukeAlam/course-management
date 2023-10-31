@@ -10,5 +10,31 @@
   <%= @semester.year_id %>
 </p>
 
-<%= link_to 'Edit', edit_semester_path(@semester) %> |
+This semester have <%= @semester.number_of_subjects %> subjects.
+<hr>
+
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @subjects.each do |sub| %>
+    <tr>
+      <td><%= sub.title %></td>
+
+
+
+
+      <td><%= link_to 'Add to this semester',  %></td>
+      <td><%= link_to 'Details', sub %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Change', edit_semester_path(@semester) %> |
 <%= link_to 'Back', semesters_path %>
