@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_31_054435) do
+ActiveRecord::Schema.define(version: 2023_10_31_061558) do
 
   create_table "departments", force: :cascade do |t|
     t.string "title"
@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(version: 2023_10_31_054435) do
   create_table "student_progresses", force: :cascade do |t|
     t.integer "year_id", null: false
     t.integer "semester_id", null: false
-    t.integer "student_id", null: false
     t.integer "subject_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
     t.index ["semester_id"], name: "index_student_progresses_on_semester_id"
-    t.index ["student_id"], name: "index_student_progresses_on_student_id"
     t.index ["subject_id"], name: "index_student_progresses_on_subject_id"
+    t.index ["user_id"], name: "index_student_progresses_on_user_id"
     t.index ["year_id"], name: "index_student_progresses_on_year_id"
   end
 
@@ -106,8 +106,8 @@ ActiveRecord::Schema.define(version: 2023_10_31_054435) do
   add_foreign_key "roles", "users"
   add_foreign_key "semesters", "years"
   add_foreign_key "student_progresses", "semesters"
-  add_foreign_key "student_progresses", "students"
   add_foreign_key "student_progresses", "subjects"
+  add_foreign_key "student_progresses", "users"
   add_foreign_key "student_progresses", "years"
   add_foreign_key "years", "departments"
 end
