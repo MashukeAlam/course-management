@@ -5,4 +5,5 @@ class Department < ApplicationRecord
   Department.all.each do |dept|
     DEPTS.append([dept.title, dept.id])
   end
+
 end
