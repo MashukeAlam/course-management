@@ -31,7 +31,16 @@ class User < ApplicationRecord
     if role != "Student"
       return "What?"
     end
-    return Department.find(DeptStudent.select(:department_id).where(user_id: 2).first.department_id).title
+    return Department.find(DeptStudent.select(:department_id).where(user_id: id).first.department_id).title
 
+  end
+
+  def year_sem
+    if role != "Student"
+      return "What?"
+    end
+
+    res = []
+    year = StudentProgress.find_by_student_id(id)
   end
 end
