@@ -46,4 +46,9 @@ class User < ApplicationRecord
 
     return "You are in #{semester} of #{year}"
   end
+
+  def subjects_taken
+    subject_list = SemesterSubject.where(semester_id: (StudentProgress.find_by_user_id(2).semester_id))
+    return subject_list
+  end
 end
