@@ -30,6 +30,14 @@ class SemesterSubjectsController < ApplicationController
     redirect_to :root
   end
 
+  def custom_destroy
+    sub_id = params[:subject_id]
+    sem_id = params[:semester_id]
+    ss = SemesterSubject.where(subject_id: sub_id, semester_id: sem_id)[0]
+    ss.destroy
+    redirect_to :root
+  end
+
   # POST /semester_subjects or /semester_subjects.json
   def create
     @semester_subject = SemesterSubject.new(semester_subject_params)

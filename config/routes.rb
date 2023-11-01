@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   root to: 'homes#index'
   get 'requests/approve/:id', to: 'requests#approve'
   get 'semester_subjects/custom_create/:semester_id/:subject_id', to: 'semester_subjects#custom_create'
+  get 'semester_subjects/custom_destroy/:semester_id/:subject_id', to: 'semester_subjects#custom_destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
