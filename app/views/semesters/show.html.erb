@@ -11,6 +11,27 @@
 </p>
 
 This semester have <%= @semester.number_of_subjects %> subjects.
+<table>
+  <thead>
+  <tr>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @semester.current_subjects.each do |sub| %>
+    <tr>
+      <td><%= sub.title %></td>
+
+
+
+
+<!--      <td><%#= link_to 'Add to this semester', "/semester_subjects/custom_create/#{@semester.id}/#{sub.id}" %></td>-->
+      <td><%= link_to 'Details', sub %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 <hr>
 
 <table>
