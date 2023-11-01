@@ -61,11 +61,6 @@
       <% @subjects.each do |sub| %>
         <tr>
           <td><%= sub.title %></td>
-
-
-
-
-
           <td><%= link_to 'Details', sub %></td>
           <td><%= link_to 'Destroy', sub, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
