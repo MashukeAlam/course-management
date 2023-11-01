@@ -58,4 +58,13 @@ class User < ApplicationRecord
   def teacher_list
     return User.where(role: "Teacher")
   end
+
+  def select_tag_list_for_teacher
+    teacher_list = []
+    teacher_list.each do |teacher|
+      teacher_list.append(["#{teacher.email}", teacher.id])
+    end
+
+    return teacher_list
+  end
 end
