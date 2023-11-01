@@ -54,4 +54,8 @@ class User < ApplicationRecord
     subject_list = SemesterSubject.where(semester_id: (StudentProgress.find_by_user_id(2).semester_id))
     return subject_list
   end
+
+  def teacher_list
+    return User.where(role: "Teacher")
+  end
 end
