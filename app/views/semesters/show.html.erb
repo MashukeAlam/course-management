@@ -39,7 +39,7 @@ This semester have <%= @semester.number_of_subjects %> subjects.
               <%= form.hidden_field :user_id %>
 
             <%= form.label :Assign_This_Teacher %>
-            <select onchange="addTeacherIdToHiddenFeild(sub.id)" id="teacher_select_tag">
+            <select onchange="addTeacherIdToHiddenFeild(<%= sub.id %>)" id="teacher_select_tag">
               <option>Please select a teacher</option>
               <% current_user.teacher_list.each do |teacher| %>
                 <option value="<%= teacher.id %>"><%= teacher.email %></option>
