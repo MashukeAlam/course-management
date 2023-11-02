@@ -55,6 +55,14 @@ class User < ApplicationRecord
     return subject_list
   end
 
+  def teacher_taking_which_subjects
+    if role != "Teacher"
+      return "What?"
+    end
+
+    return TeacherSubject.where(user_id: id)
+  end
+
   def teacher_list
     return User.where(role: "Teacher")
   end

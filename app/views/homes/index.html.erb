@@ -90,6 +90,12 @@
     <% end %>
   <% elsif current_user.teacher? %>
     <h4>You are a teacher.</h4>
+    This are the subjects that you are taking:
+    <ul>
+    <% current_user.teacher_taking_which_subjects.each do |sub| %>
+      <li><%= sub.subject.title %></li>
+    <% end %>
+    </ul>
   <% end %>
 <% end %>
 
