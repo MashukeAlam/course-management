@@ -26,7 +26,14 @@ This semester have <%= @semester.number_of_subjects %> subjects.
 
 
       <td><%= link_to 'Remove from this semester', "/semester_subjects/custom_destroy/#{@semester.id}/#{sub.id}" %></td>
-
+      <td>
+        <%= form_with(model: subject) do |form| %>
+          <div class="field">
+            <%= form.label :sub_type %>
+            <%= form.select :sub_type, current_user.select_tag_list_for_teacher %>
+          </div>
+        <% end %>
+          </td>
 <!--      <td><%#= link_to 'Add to this semester', "/semester_subjects/custom_create/#{@semester.id}/#{sub.id}" %></td>-->
       <td><%= link_to 'Details', sub %></td>
     </tr>
