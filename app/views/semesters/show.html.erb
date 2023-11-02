@@ -33,7 +33,12 @@ This semester have <%= @semester.number_of_subjects %> subjects.
               <%= form.hidden_field :subject_id, value: sub.id %>
             </div>
             <%= form.label :Assign_This_Teacher %>
-            <%= form.select :sub_type, current_user.select_tag_list_for_teacher %>
+            <select onchange="addTeacherIdToHiddenFeild()" id="teacher_select_tag">
+              <option>Please select a teacher</option>
+              <% current_user.teacher_list.each do |teacher| %>
+                <option value="<%= teacher.id %>"><%= teacher.email %></option>
+              <% end %>
+            </select>
             <div class="actions">
               <%= form.submit %>
             </div>
@@ -73,3 +78,9 @@ This semester have <%= @semester.number_of_subjects %> subjects.
 
 <%= link_to 'Change', edit_semester_path(@semester) %> |
 <%= link_to 'Back', semesters_path %>
+
+<script>
+   const addTeacherIdToHiddenFeild = (e) => {
+       console.log(e)
+   }
+</script>
