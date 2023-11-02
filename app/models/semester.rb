@@ -12,4 +12,6 @@ class Semester < ApplicationRecord
   def current_subjects
     return  Subject.select(:id, :title).where(id: SemesterSubject.select(:subject_id).where(semester_id: id))
   end
+
+
 end

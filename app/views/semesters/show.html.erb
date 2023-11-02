@@ -27,6 +27,9 @@ This semester have <%= @semester.number_of_subjects %> subjects.
 
       <td><%= link_to 'Remove from this semester', "/semester_subjects/custom_destroy/#{@semester.id}/#{sub.id}" %></td>
       <td>
+        <% if sub.if_teacher_exist %>
+        <%= sub.which_teacher %>
+        <% else %>
         <%= form_with(model: @teachersubject) do |form| %>
 
 
@@ -46,6 +49,7 @@ This semester have <%= @semester.number_of_subjects %> subjects.
               <%= form.submit %>
 
 
+        <% end %>
         <% end %>
           </td>
       <td><%= link_to 'Details', sub %></td>
