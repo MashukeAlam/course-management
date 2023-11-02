@@ -30,7 +30,7 @@ This semester have <%= @semester.number_of_subjects %> subjects.
         <% if sub.if_teacher_exist %>
         <%= sub.which_teacher %>
         <% else %>
-        <%= form_with(model: @teachersubject) do |form| %>
+        <%= form_with(model: @teachersubject, id: sub.id) do |form| %>
 
 
               <%= form.hidden_field :subject_id, value: sub.id %>
@@ -39,7 +39,7 @@ This semester have <%= @semester.number_of_subjects %> subjects.
               <%= form.hidden_field :user_id %>
 
             <%= form.label :Assign_This_Teacher %>
-            <select onchange="addTeacherIdToHiddenFeild()" id="teacher_select_tag">
+            <select onchange="addTeacherIdToHiddenFeild(sub.id)" id="teacher_select_tag">
               <option>Please select a teacher</option>
               <% current_user.teacher_list.each do |teacher| %>
                 <option value="<%= teacher.id %>"><%= teacher.email %></option>
@@ -86,9 +86,11 @@ This semester have <%= @semester.number_of_subjects %> subjects.
 <%= link_to 'Back', semesters_path %>
 
 <script>
-   const addTeacherIdToHiddenFeild = () => {
-       selectDOM = document.getElementById("teacher_select_tag")
+   const addTeacherIdToHiddenFeild = (target) => {
+       let teacher_subject_relevant_to_this_select_tag_by_form_id = document.querySelectorAll(`form[id="${target}"]`)[0][2]
+
+       let selectDOM = document.getElementById("teacher_select_tag")
        console.log(selectDOM.value)
-       document.getElementById("teacher_subject_user_id").value = selectDOM.value
+       teacher_subject_relevant_to_this_select_tag_by_form_id.value = selectDOM.value
    }
 </script>

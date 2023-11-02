@@ -1,4 +1,5 @@
 class TeacherSubjectsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_teacher_subject, only: %i[ show edit update destroy ]
 
   # GET /teacher_subjects or /teacher_subjects.json
