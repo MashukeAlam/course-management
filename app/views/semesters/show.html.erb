@@ -28,13 +28,13 @@ This semester have <%= @semester.number_of_subjects %> subjects.
       <td><%= link_to 'Remove from this semester', "/semester_subjects/custom_destroy/#{@semester.id}/#{sub.id}" %></td>
       <td>
         <%= form_with(model: @teachersubject) do |form| %>
-          <div class="field">
-            <div class="field">
+
+
               <%= form.hidden_field :subject_id, value: sub.id %>
-            </div>
-            <div class="field">
+
+
               <%= form.hidden_field :user_id %>
-            </div>
+
             <%= form.label :Assign_This_Teacher %>
             <select onchange="addTeacherIdToHiddenFeild()" id="teacher_select_tag">
               <option>Please select a teacher</option>
@@ -42,13 +42,12 @@ This semester have <%= @semester.number_of_subjects %> subjects.
                 <option value="<%= teacher.id %>"><%= teacher.email %></option>
               <% end %>
             </select>
-            <div class="actions">
+
               <%= form.submit %>
-            </div>
-          </div>
+
+
         <% end %>
           </td>
-<!--      <td><%#= link_to 'Add to this semester', "/semester_subjects/custom_create/#{@semester.id}/#{sub.id}" %></td>-->
       <td><%= link_to 'Details', sub %></td>
     </tr>
   <% end %>
