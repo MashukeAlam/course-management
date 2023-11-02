@@ -32,6 +32,9 @@ This semester have <%= @semester.number_of_subjects %> subjects.
             <div class="field">
               <%= form.hidden_field :subject_id, value: sub.id %>
             </div>
+            <div class="field">
+              <%= form.hidden_field :user_id %>
+            </div>
             <%= form.label :Assign_This_Teacher %>
             <select onchange="addTeacherIdToHiddenFeild()" id="teacher_select_tag">
               <option>Please select a teacher</option>
@@ -80,7 +83,9 @@ This semester have <%= @semester.number_of_subjects %> subjects.
 <%= link_to 'Back', semesters_path %>
 
 <script>
-   const addTeacherIdToHiddenFeild = (e) => {
-       console.log(e)
+   const addTeacherIdToHiddenFeild = () => {
+       selectDOM = document.getElementById("teacher_select_tag")
+       console.log(selectDOM.value)
+       document.getElementById("teacher_subject_user_id").value = selectDOM.value
    }
 </script>
