@@ -9,7 +9,7 @@ class SemestersController < ApplicationController
 
   # GET /semesters/1 or /semesters/1.json
   def show
-    @subjects = Subject.all
+    @subjects = Subject.where.not(id: (SemesterSubject.select(:subject_id)))
     @semester_subject = SemesterSubject.new
     @teachersubject = TeacherSubject.new
   end
