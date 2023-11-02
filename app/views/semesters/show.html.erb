@@ -29,8 +29,14 @@ This semester have <%= @semester.number_of_subjects %> subjects.
       <td>
         <%= form_with(model: @teachersubject) do |form| %>
           <div class="field">
+            <div class="field">
+              <%= form.hidden_field :subject_id, value: sub.id %>
+            </div>
             <%= form.label :Assign_This_Teacher %>
             <%= form.select :sub_type, current_user.select_tag_list_for_teacher %>
+            <div class="actions">
+              <%= form.submit %>
+            </div>
           </div>
         <% end %>
           </td>
