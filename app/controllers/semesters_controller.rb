@@ -11,6 +11,7 @@ class SemestersController < ApplicationController
   def show
     @subjects = Subject.all
     @semester_subject = SemesterSubject.new
+    @teachersubject = TeacherSubject.new
   end
 
   # GET /semesters/new

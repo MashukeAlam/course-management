@@ -60,11 +60,11 @@ class User < ApplicationRecord
   end
 
   def select_tag_list_for_teacher
-    teacher_list = []
+    select_tag_appropiate_array = []
     teacher_list.each do |teacher|
-      teacher_list.append(["#{teacher.email}", teacher.id])
+      select_tag_appropiate_array.append(["#{teacher.email}", teacher.id])
     end
 
-    return teacher_list
+    return select_tag_appropiate_array
   end
 end
