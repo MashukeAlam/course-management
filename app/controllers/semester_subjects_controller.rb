@@ -27,6 +27,12 @@ class SemesterSubjectsController < ApplicationController
     ss.subject_id = sub_id
     ss.semester_id = sem_id
     ss.save
+    StudentProgress.select(:user_id).where(semester_id: sem_id).each do |single|
+      stud_sub = StudentSubject.new
+      stud_sub.subject_id = sub_id
+      stud_sub.user_id = single.user_id
+      stud_sub.save
+    end
     redirect_to :root
   end
 
