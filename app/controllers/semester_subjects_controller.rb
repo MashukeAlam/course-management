@@ -41,6 +41,10 @@ class SemesterSubjectsController < ApplicationController
     sem_id = params[:semester_id]
     ss = SemesterSubject.where(subject_id: sub_id, semester_id: sem_id)[0]
     ss.destroy
+    StudentProgress.select(:user_id).where(semester_id: sem_id).each do |single|
+      stud_sub = StudentSubject.where(subject_id: sub_id, user_id: single.user_id)[0]
+      stud_sub.destroy
+    end
     redirect_to :root
   end
 
