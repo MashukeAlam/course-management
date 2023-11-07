@@ -51,7 +51,7 @@ class User < ApplicationRecord
     if role != "Student"
       return "What?"
     end
-    subject_list = SemesterSubject.where(semester_id: (StudentProgress.find_by_user_id(2).semester_id))
+    subject_list =  StudentSubject.select(:subject_id).where(user_id: id)
     return subject_list
   end
 
