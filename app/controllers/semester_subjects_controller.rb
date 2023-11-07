@@ -45,6 +45,7 @@ class SemesterSubjectsController < ApplicationController
       stud_sub = StudentSubject.where(subject_id: sub_id, user_id: single.user_id)[0]
       stud_sub.destroy
     end
+    TeacherSubject.where(subject_id: sub_id).destroy_all
     redirect_to :root
   end
 
