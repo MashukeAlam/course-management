@@ -9,6 +9,7 @@ class SemesterSubjectsController < ApplicationController
 
   # GET /semester_subjects/1 or /semester_subjects/1.json
   def show
+
   end
 
   # GET /semester_subjects/new
