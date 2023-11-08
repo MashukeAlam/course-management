@@ -47,6 +47,14 @@ class User < ApplicationRecord
     return "You are in #{semester} of #{year}"
   end
 
+  def current_semester
+    if role != "Student"
+      return "What?"
+    end
+
+    StudentProgress.find_by_user_id(id).id
+  end
+
   def subjects_taken
     if role != "Student"
       return "What?"
