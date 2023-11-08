@@ -55,6 +55,14 @@ class User < ApplicationRecord
     StudentProgress.find_by_user_id(id).id
   end
 
+  def subject_passed_percent
+    if role != "Student"
+      "what?"
+    end
+
+    (StudentSubject.where(user_id: id, passed:true).count.to_f / StudentSubject.where(user_id: id).count) * 100
+  end
+
   def subjects_taken
     if role != "Student"
       return "What?"
