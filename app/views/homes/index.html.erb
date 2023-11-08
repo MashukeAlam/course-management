@@ -83,7 +83,7 @@
     <% if current_user.has_dept? %>
       <p>You are a student of <%= current_user.dept_name %>.</p>
       <p><%= current_user.year_sem %></p>
-
+      <p>You have passed in <%= current_user.subject_passed_percent %>% of the courses</p>
       <p>You are enrolled in following courses:</p>
       <table>
       <% current_user.subjects_taken.each do |sub| %>
