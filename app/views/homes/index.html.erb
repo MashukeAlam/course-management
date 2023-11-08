@@ -101,7 +101,13 @@
         <table>
           <% current_user.students_taking_this_subject(sub.id).each do |stud|  %>
           <tr><td><%= stud.user.email %></td>
-            <td><% if  %></td>
+            <td>
+              <% if current_user.this_student_passed_or_not(stud.user.id, sub.id) %>
+                Passed
+              <% else %>
+                TBD
+              <% end %>
+                </td>
           </tr>
             <% end %>
         </table>

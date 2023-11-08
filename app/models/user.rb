@@ -77,7 +77,7 @@ class User < ApplicationRecord
   end
 
   def this_student_passed_or_not(uid, sid)
-    return StudentSubject.select(:passed).where(user_id: uid, subject_id: sid)
+    return StudentSubject.select(:passed).where(user_id: uid, subject_id: sid).first.passed == true
   end
 
   def students_taking_this_subject(sub_id)
