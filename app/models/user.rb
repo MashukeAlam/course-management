@@ -76,6 +76,10 @@ class User < ApplicationRecord
     return select_tag_appropiate_array
   end
 
+  def this_student_passed_or_not(uid, sid)
+    return StudentSubject.select(:passed).where(user_id: uid, subject_id: sid)
+  end
+
   def students_taking_this_subject(sub_id)
     if role != "Teacher"
       "What?"

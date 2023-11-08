@@ -100,7 +100,9 @@
       <li><div style="display: flex; flex-direction: row; padding: 10px"><div style="margin-right: 10px"><%= sub.subject.title %></div><div>Show students</div></div></li>
         <table>
           <% current_user.students_taking_this_subject(sub.id).each do |stud|  %>
-          <tr><td><%= stud.user.email %></td></tr>
+          <tr><td><%= stud.user.email %></td>
+            <td><% if  %></td>
+          </tr>
             <% end %>
         </table>
     <% end %>
