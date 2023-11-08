@@ -75,4 +75,13 @@ class User < ApplicationRecord
 
     return select_tag_appropiate_array
   end
+
+  def students_taking_this_subject(sub_id)
+    if role != "Teacher"
+      "What?"
+    end
+
+    return StudentSubject.select(:user_id).where(subject_id: sub_id)
+
+  end
 end
