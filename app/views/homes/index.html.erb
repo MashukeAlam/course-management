@@ -123,6 +123,7 @@
 <br>
 
 <script>
+    var csrfToken = $('meta[name="csrf-token"]').attr('content');
 
 
     function make_this_student_passed(ss_id){
@@ -138,6 +139,7 @@
             },
             error: function(xhr, status, error) {
                 console.log("Something went wrong!")
+                console.log(`${error}`)
             }
         })
     }
