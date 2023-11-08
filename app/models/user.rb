@@ -85,7 +85,7 @@ class User < ApplicationRecord
       "What?"
     end
 
-    return StudentSubject.select(:user_id).where(subject_id: sub_id)
+    return StudentSubject.select(:user_id, :id).where(subject_id: sub_id)
 
   end
 end

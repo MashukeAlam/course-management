@@ -1,3 +1,6 @@
+<body>
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Homes</h1>
@@ -105,7 +108,7 @@
               <% if current_user.this_student_passed_or_not(stud.user.id, sub.id) %>
                 Passed
               <% else %>
-                TBD
+                <input type="radio" name="passed" onchange="make_this_student_passed(<%= stud.id %>)">
               <% end %>
                 </td>
           </tr>
@@ -119,4 +122,25 @@
 
 <br>
 
+<script>
+
+
+    function make_this_student_passed(ss_id){
+        console.log(ss_id)
+        Rails.ajax({
+            url: `/student_subjects/${ss_id}/`,
+            type: "PUT",
+            data: {
+                passed: true
+            },
+            success: function(res) {
+                console.log("Done and dusted")
+            },
+            error: function(xhr, status, error) {
+                console.log("Something went wrong!")
+            }
+        })
+    }
+</script>
+</body>
 
