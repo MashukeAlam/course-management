@@ -37,6 +37,9 @@ class StudentSubjectsController < ApplicationController
   # PATCH/PUT /student_subjects/1 or /student_subjects/1.json
   def update
     puts "<<<<< HERE >>>>>"
+    @student_subject = StudentSubject.find(params[:id])
+    puts "<<<<<<<<<<", @student_subject.id, "<<<<<<<<<<<<<<<<<<"
+    puts student_subject_params
     respond_to do |format|
       if @student_subject.update(student_subject_params)
         format.html { redirect_to student_subject_url(@student_subject), notice: "Student subject was successfully updated." }

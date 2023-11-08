@@ -131,9 +131,12 @@
         $.ajax({
             url: `/student_subjects/${ss_id}/`,
             type: "PUT",
-            data: {
-                passed: true
+            headers: {
+                'X-CSRF-Token': csrfToken
             },
+            data: JSON.stringify({
+                "passed": true
+            }),
             success: function(res) {
                 console.log("Done and dusted")
             },
