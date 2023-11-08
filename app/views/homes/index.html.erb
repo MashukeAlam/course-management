@@ -85,11 +85,17 @@
       <p><%= current_user.year_sem %></p>
 
       <p>You are enrolled in following courses:</p>
-      <ul>
+      <table>
       <% current_user.subjects_taken.each do |sub| %>
-        <li><%= sub.subject.title %></li>
+        <tr><td><%= sub.subject.title %></td><td>
+          <% if sub.passed %>
+            Passed
+          <% else %>
+            Not passed yet.
+          <% end %>
+          </td></tr>
       <% end %>
-      </ul>
+      </table>
     <% else %>
       <p>You haven't selected your department yet. Select one right now!</p>
       <%= link_to "Choose department", new_dept_student_url(:user_id => current_user.id) %>
