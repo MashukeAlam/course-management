@@ -60,7 +60,7 @@ class User < ApplicationRecord
       "what?"
     end
 
-    (StudentSubject.where(user_id: id, passed:true).count.to_f / StudentSubject.where(user_id: id).count) * 100
+    ((StudentSubject.where(user_id: id, passed:true).count.to_f / StudentSubject.where(user_id: id).count) * 100).round(2)
   end
 
   def subjects_taken
