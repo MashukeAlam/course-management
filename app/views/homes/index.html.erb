@@ -130,7 +130,7 @@
           <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#studentCollapse<%= sub.id %>" aria-expanded="false" aria-controls="studentCollapse">See students taking this subject</button>
         </p></div>
           <div class="collapse multi-collapse" id="studentCollapse<%= sub.id %>">
-            <table class="table">
+            <table class="table table-bordered">
               <thead class="thead-dark">
               <th>Students</th>
               <th>Pass</th>
@@ -139,7 +139,10 @@
                 <tr><td><%= stud.user.email %></td>
                   <td>
                     <% if current_user.this_student_passed_or_not(stud.user.id, sub.id) %>
-                      <input checked type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="warning" data-on="Passed" data-off="Not passed" disabled>
+                      <div style="width: max-content">
+                        <input checked type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="warning" data-on="Passed" data-off="Not passed" disabled>
+
+                      </div>
 
                     <% else %>
                       <input onchange="make_this_student_passed(<%= stud.id %>)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="warning" data-on="Passed" data-off="Not passed">
@@ -166,6 +169,25 @@
 
 <script>
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Delay the function by 2 seconds (2000 milliseconds)
+        setTimeout(function() {
+            // Select all elements with both classes .btn and .toggle
+            var elements = document.querySelectorAll('.btn.toggle');
+
+            if (elements.length > 0) {
+                // Iterate through the selected elements
+                elements.forEach(function(element) {
+                    // Set the min-width property to 160px for each element
+                    element.style.minWidth = '160px';
+                });
+            } else {
+                console.log("No elements with classes .btn.toggle found.");
+            }
+        }, 2000); // 2000 milliseconds = 2 seconds
+    });
+
 
 
     function make_this_student_passed(ss_id){
