@@ -9,8 +9,8 @@
   <% if current_user.admin? %>
     <h4>You are an admin</h4>
     <p>
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#requestCollapse" aria-expanded="false" aria-controls="requestCollapse">See
-        requests
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#requestCollapse" aria-expanded="false" aria-controls="requestCollapse">
+        See requests
       </button>
     </p>
 
@@ -32,7 +32,7 @@
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                   <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1"><%= request.user.email %> requested to be a <%= request.role %></h5>
-                    <small><%= time_ago_in_words(request.created_at) %>> ago</small>
+                    <small><%= time_ago_in_words(request.created_at) %> ago</small>
                   </div>
                   <p class="mb-1">
                     <% if request.approved %>
