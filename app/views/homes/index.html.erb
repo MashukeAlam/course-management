@@ -8,7 +8,7 @@
   <h5>Welcome back <%= current_user.email %><small class="pl-2 text-muted"><%= current_user.user_role %></small></h5>
   <% if current_user.admin? %>
     <p>
-      <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#requestCollapse" aria-expanded="false" aria-controls="requestCollapse">
+      <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#requestCollapse" aria-expanded="false" aria-controls="requestCollapse">
         See requests
       </button>
     </p>
@@ -57,7 +57,7 @@
 
     <hr>
 
-    <table class="table custom">
+    <table class="table custom  table-hover table-sm">
       <thead class="thead-dark">
       <tr>
         <th colspan="3">Departments</th>
@@ -76,10 +76,10 @@
       <% end %>
       </tbody>
     </table>
-    <%= link_to "Create Dept", new_department_url %>
+    <%= link_to "Create Dept +", new_department_url, :class => "btn btn-outline-dark" %>
 
     <hr>
-    <table class="table custom">
+    <table class="table custom  table-hover table-sm">
       <thead class="thead-dark">
       <tr>
         <th colspan="3">Subjects</th>
@@ -96,7 +96,7 @@
       <% end %>
       </tbody>
     </table>
-    <%= link_to "Create Subject", new_subject_url, :class => "btn btn-outline-dark" %>
+    <%= link_to "Create Subject +", new_subject_url, :class => "btn btn-outline-dark" %>
   <% elsif current_user.regular? %>
     <h4>You are a regular user. Try to get a role now!</h4>
     <%= link_to 'Get a role', new_request_url %>
