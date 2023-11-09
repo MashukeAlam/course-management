@@ -1,5 +1,11 @@
 body {
     margin: 0px;
+}
 
+.custom {
+    max-width: 600px;
+}
 
+.body-m-left {
+    margin-left: 10px;
 }

@@ -15,7 +15,7 @@
     </p>
 
     <div class="collapse multi-collapse" id="requestCollapse">
-      <table class="table">
+      <table class="table custom">
         <thead class="thead-dark">
         <tr>
 
@@ -30,13 +30,13 @@
             <td>
               <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                  <div class="d-flex w-100 justify-content-between">
+                  <div class="d-flex  justify-content-between">
                     <h5 class="mb-1"><%= request.user.email %> requested to be a <%= request.role %></h5>
                     <small><%= time_ago_in_words(request.created_at) %> ago</small>
                   </div>
                   <p class="mb-1">
                     <% if request.approved %>
-                    <p>
+
                       <mark><b>Approved</b></mark>
                     </p>
                   <% else %>
