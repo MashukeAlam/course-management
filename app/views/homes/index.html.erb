@@ -13,23 +13,24 @@
     </p>
 
     <div class="collapse multi-collapse" id="requestCollapse">
-      <table>
-        <thead>
+      <table class="table">
+        <thead class="thead-dark">
         <tr>
-          <th colspan="3"></th>
+
+          <th scope="col">Request Description</th>
+          <th scope="col">Status</th>
         </tr>
         </thead>
-
         <tbody>
         <% @requests.each do |request| %>
           <tr>
-            <td><%= request.user_id %> requested to be a <%= request.role %></td>
+
+            <td><%= request.user.email %> requested to be a <%= request.role %></td>
             <% if request.approved %>
               <td><p style="text-decoration: underline">Approved</p></td>
             <% else %>
               <td><%= link_to 'Approve', "/requests/approve/#{request.id}" %></td>
             <% end %>
-            <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
         </tbody>

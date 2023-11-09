@@ -4,7 +4,7 @@ class HomesController < ApplicationController
 
   # GET /homes or /homes.json
   def index
-    @requests = Request.all
+    @requests = Request.all.order(created_at: :desc)
     @departments = Department.all
     @subjects = Subject.all
     @dept_student = DeptStudent.new
