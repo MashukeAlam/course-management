@@ -124,25 +124,28 @@
   <% elsif current_user.teacher? %>
     <h4>You are a teacher.</h4>
     These are the subjects that you are taking:
-    <ul>
+    <ul class="list-group">
     <% current_user.teacher_taking_which_subjects.each do |sub| %>
-      <li><div style="display: flex; flex-direction: row; padding: 10px"><div style="margin-right: 10px"><%= sub.subject.title %></div><div>Show students</div></div></li>
-        <table>
-          <% current_user.students_taking_this_subject(sub.id).each do |stud|  %>
-          <tr><td><%= stud.user.email %></td>
-            <td>
-              <% if current_user.this_student_passed_or_not(stud.user.id, sub.id) %>
-                <input onchange="make_this_student_passed(<%= stud.id %>)" checked type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="warning" data-on="Passed" data-off="Not passed">
+        <li class="list-group-item list-group-item-success"><div style="display: flex; flex-direction: row; padding: 10px"><div style="margin-right: 10px"><%= sub.subject.title %></div><div>Show students</div></div></li>
+        <div>
+          <table>
+            <% current_user.students_taking_this_subject(sub.id).each do |stud|  %>
+              <tr><td><%= stud.user.email %></td>
+                <td>
+                  <% if current_user.this_student_passed_or_not(stud.user.id, sub.id) %>
+                    <input onchange="make_this_student_passed(<%= stud.id %>)" checked type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="warning" data-on="Passed" data-off="Not passed">
 
-            <% else %>
-                <input onchange="make_this_student_passed(<%= stud.id %>)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="warning" data-on="Passed" data-off="Not passed">
+                  <% else %>
+                    <input onchange="make_this_student_passed(<%= stud.id %>)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="warning" data-on="Passed" data-off="Not passed">
 
-<!--                <input type="radio" name="passed" onchange="make_this_student_passed(<%#= stud.id %>)">-->
-              <% end %>
+                    <!--                <input type="radio" name="passed" onchange="make_this_student_passed(<%#= stud.id %>)">-->
+                  <% end %>
                 </td>
-          </tr>
+              </tr>
             <% end %>
-        </table>
+          </table>
+        </div>
+
     <% end %>
     </ul>
   <% end %>
