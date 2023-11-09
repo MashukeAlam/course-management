@@ -4,6 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def user_role
+    if admin
+      "Admin"
+    elsif role == "Student"
+      "Student"
+    elsif role == "Teacher"
+      "Teacher"
+    else
+      "Regular"
+      end
+  end
   def admin?
     return admin
   end

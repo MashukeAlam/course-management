@@ -5,9 +5,8 @@
 
 
 <% if user_signed_in? %>
-
+  <h5>Welcome back <%= current_user.email %><small class="pl-2 text-muted"><%= current_user.user_role %></small></h5>
   <% if current_user.admin? %>
-    <h4>You are an admin</h4>
     <p>
       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#requestCollapse" aria-expanded="false" aria-controls="requestCollapse">
         See requests
