@@ -127,9 +127,9 @@
     <ul class="list-group">
     <% current_user.teacher_taking_which_subjects.each do |sub| %>
         <li class="list-group-item list-group-item-success"><div style="display: flex; flex-direction: row; padding: 10px; justify-content: space-between"><div style="margin-right: 10px"><%= sub.subject.title %></div><p>
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#studentCollapse" aria-expanded="false" aria-controls="studentCollapse">See students taking this subject</button>
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#studentCollapse<%= sub.id %>" aria-expanded="false" aria-controls="studentCollapse">See students taking this subject</button>
         </p></div>
-          <div class="collapse multi-collapse" id="studentCollapse">
+          <div class="collapse multi-collapse" id="studentCollapse<%= sub.id %>">
             <table class="table">
               <thead class="thead-dark">
               <th>Students</th>
