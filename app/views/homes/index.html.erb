@@ -132,11 +132,12 @@
           <tr><td><%= stud.user.email %></td>
             <td>
               <% if current_user.this_student_passed_or_not(stud.user.id, sub.id) %>
-                Passed
-              <% else %>
+                <input onchange="make_this_student_passed(<%= stud.id %>)" checked type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="warning" data-on="Passed" data-off="Not passed">
+
+            <% else %>
                 <input onchange="make_this_student_passed(<%= stud.id %>)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="warning" data-on="Passed" data-off="Not passed">
 
-                <input type="radio" name="passed" onchange="make_this_student_passed(<%= stud.id %>)">
+<!--                <input type="radio" name="passed" onchange="make_this_student_passed(<%#= stud.id %>)">-->
               <% end %>
                 </td>
           </tr>
