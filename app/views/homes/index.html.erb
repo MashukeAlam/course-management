@@ -32,11 +32,13 @@
                     <h5 class="mb-1"><%= request.user.email %> requested to be a <%= request.role %></h5>
                     <small><%= time_ago_in_words(request.created_at) %>> ago</small>
                   </div>
-                  <p class="mb-1"><% if request.approved %>
+                  <p class="mb-1">
+                    <% if request.approved %>
                       <p><mark><b>Approved</b></mark></p>
               <% else %>
                 <%= link_to 'Approve', "/requests/approve/#{request.id}", :class => "btn btn-success" %>
-              <% end %></p>
+              <% end %>
+                  </p>
                 </a>
 
               </div>

@@ -9,9 +9,9 @@ class Ability
     elsif user.student?
       can :read, Department
       can :create, StudentProgress
-      can :create, DeptStudent
+      can :manage, DeptStudent
     elsif user.teacher?
-      cam :read, department
+      can :read, department
     end
     # Define abilities for the user here. For example:
     #
