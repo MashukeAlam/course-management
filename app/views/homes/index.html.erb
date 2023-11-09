@@ -17,7 +17,7 @@
         <thead class="thead-dark">
         <tr>
 
-          <th scope="col">Request Description</th>
+          <th scope="col">Request Descriptions</th>
 
         </tr>
         </thead>
@@ -33,9 +33,9 @@
                     <small><%= time_ago_in_words(request.created_at) %>> ago</small>
                   </div>
                   <p class="mb-1"><% if request.approved %>
-                      <p style="text-decoration: underline">Approved</p>
+                      <p><mark><b>Approved</b></mark></p>
               <% else %>
-                <%= link_to 'Approve', "/requests/approve/#{request.id}" %>
+                <%= link_to 'Approve', "/requests/approve/#{request.id}", :class => "btn btn-success" %>
               <% end %></p>
                 </a>
 
@@ -134,6 +134,8 @@
               <% if current_user.this_student_passed_or_not(stud.user.id, sub.id) %>
                 Passed
               <% else %>
+                <input onchange="make_this_student_passed(<%= stud.id %>)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="warning" data-on="Passed" data-off="Not passed">
+
                 <input type="radio" name="passed" onchange="make_this_student_passed(<%= stud.id %>)">
               <% end %>
                 </td>
