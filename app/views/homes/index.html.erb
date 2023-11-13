@@ -118,8 +118,9 @@
           <th>Subject</th>
           <th>Status</th>
           <th>Teacher</th>
+        <th>Percentage</th>
         </thead>
-        <% current_user.subjects_taken.each do |sub| %>
+        <% current_user.subjects_taken.each do |sub, index| %>
           <tr>
             <td><%= sub.subject.title %></td>
             <td>
@@ -132,8 +133,12 @@
             <td>
               <%= current_user.teacher_teaching_this_course(sub.subject.id) %>
             </td>
+            <% if index != 0 %>
+            <td rowspan="999"><%= current_user.subject_passed_percent %>%</td>
+              <% end %>
           </tr>
         <% end %>
+
       </table>
       </div>
     <% else %>
