@@ -9,3 +9,10 @@ body {
 .body-m-left {
     margin-left: 10px;
 }
+
+.center_green {
+    text-align: center; /* Center align text horizontally */
+    vertical-align: middle; /* Center align text vertically */
+
+
+}
