@@ -117,6 +117,7 @@
         <thead class="thead-dark">
           <th>Subject</th>
           <th>Status</th>
+          <th>Teacher</th>
         </thead>
         <% current_user.subjects_taken.each do |sub| %>
           <tr>
@@ -127,6 +128,9 @@
               <% else %>
                 Not passed yet.
               <% end %>
+            </td>
+            <td>
+              <%= current_user.teacher_teaching_this_course(sub.subject.id) %>
             </td>
           </tr>
         <% end %>
