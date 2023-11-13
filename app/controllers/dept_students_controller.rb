@@ -33,7 +33,7 @@ class DeptStudentsController < ApplicationController
         student_progress.user_id = @dept_student.user_id
         semester_subject_all = SemesterSubject.select(:subject_id).where(semester_id: student_progress.semester_id)
         semester_subject_all.each do |sub|
-          StudentSubject.create(semester_id: sub.semester_id, subject_id: sub.subject_id)
+          StudentSubject.create(user_id: @dept_student.user_id, subject_id: sub.subject_id)
         end
         student_progress.save
         format.html { redirect_to dept_student_url(@dept_student), notice: "Dept student was successfully created." }
