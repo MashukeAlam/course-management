@@ -107,7 +107,17 @@
       <p><%= current_user.year_sem %></p>
       <p>You have passed in <%= current_user.subject_passed_percent %>% of the courses</p>
       <p>You are enrolled in following courses:</p>
-      <table>
+      <p>
+        <button class="btn btn-outline-info" type="button" data-toggle="collapse" data-target="#subjectsTable" aria-expanded="false" aria-controls="subjectsTable">
+          See subjects
+        </button>
+      </p>
+      <div class="collapse multi-collapse" id="subjectsTable">
+      <table class="table table-hover table-bordered table-sm custom">
+        <thead class="thead-dark">
+          <th>Subject</th>
+          <th>Status</th>
+        </thead>
         <% current_user.subjects_taken.each do |sub| %>
           <tr>
             <td><%= sub.subject.title %></td>
@@ -121,6 +131,7 @@
           </tr>
         <% end %>
       </table>
+      </div>
     <% else %>
       <p>You haven't selected your department yet. Select one right now!</p>
       <%= link_to "Choose department", new_dept_student_url(:user_id => current_user.id) %>
