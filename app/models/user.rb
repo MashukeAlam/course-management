@@ -115,4 +115,8 @@ class User < ApplicationRecord
     return StudentSubject.select(:user_id, :id).where(subject_id: sub_id)
 
   end
+
+  def teacher_teaching_this_course(sub_id)
+    return TeacherSubject.select(:user_id).where(subject_id: sub_id).first.user.email
+  end
 end
