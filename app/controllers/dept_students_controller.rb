@@ -31,6 +31,10 @@ class DeptStudentsController < ApplicationController
         student_progress.year_id = Year.select(:id).where(name: "1st year", department_id: @dept_student.department_id)[0].id
         student_progress.semester_id = Semester.select(:id).where(year_id: student_progress.year_id, title: "1st Semester")[0].id
         student_progress.user_id = @dept_student.user_id
+        semester_subject_all = SemesterSubject.select(:subject_id).where(semester_id: student_progress.semester_id)
+        semester_subject_all.each do |sub|
+          StudentSubject.create(semester_id: sub.semester_id, subject_id: sub.subject_id)
+        end
         student_progress.save
         format.html { redirect_to dept_student_url(@dept_student), notice: "Dept student was successfully created." }
         format.json { render :show, status: :created, location: @dept_student }
